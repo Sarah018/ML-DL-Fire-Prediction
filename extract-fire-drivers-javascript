@@ -1,5 +1,5 @@
 // The javascript code can be accessed through Google Earth Engine cloud computing platform at:
-// https://code.earthengine.google.com/b5186394ef2b913009652695f393124d
+// https://code.earthengine.google.com/93b518d230de2e8aaa2b84e909d56e9e
 
 
 // The code is as follows:
@@ -29,6 +29,8 @@ var LAICol = ee.ImageCollection("MODIS/006/MOD15A2H"),
   
 
 
+
+
 var roi = /* color: #bf04c2 */ee.Geometry.Polygon(
         [[[-180, 82],
           [0, 82],
@@ -48,7 +50,7 @@ var Vis = {
   ],
 };
 
-// ************************************************************************************************************************************************************
+// ************************************************************ Extract Fire Drivers ******************************************************************************************
 
 function getAccu_precip_snow(year, month, start, finish){
   var startDate = ee.Date(start);
@@ -394,7 +396,7 @@ function getSnowmelt_rad(year, month, start, finish) {
   var img_incoming_shorRD = IncomingSR.select(bandName)
   var img_incoming_longRD = IncomingLR.select(bandName);
 
-  // *********************************** calculate snowmelt caused by radiation ******************************
+
 
   var doyList = ee.List(imgCol_albedo.aggregate_array('doy'));
   var imgCol_snowmelt_rad = doyList.map(function(doy){
@@ -547,8 +549,6 @@ function getSnowmelt_rad_LST(year, month, start, finish) {
   bandName = 'b' + bandName
   var img_incoming_shorRD = IncomingSR.select(bandName)
   var img_incoming_longRD = IncomingLR.select(bandName);
-
-  // *********************************** calculate snowmelt caused by radiation ******************************
 
   var doyList = ee.List(imgCol_albedo.aggregate_array('doy'));
   var imgCol_snowmelt_rad = doyList.map(function(doy){
@@ -741,7 +741,7 @@ function getSnowmelt_rad_LST_LE_SH(year, month, start, finish) {
   var img_incoming_shorRD = IncomingSR.select(bandName)
   var img_incoming_longRD = IncomingLR.select(bandName);
 
-  // *********************************** calculate snowmelt caused by radiation ******************************
+
 
   var doyList = ee.List(imgCol_albedo.aggregate_array('doy'));
   var imgCol_snowmelt_rad = doyList.map(function(doy){
@@ -781,7 +781,6 @@ function getSnowmelt_rad_LST_LE_SH(year, month, start, finish) {
   return img_snowmelt_rad
   
 }
-// ************************************************************************************************************************************************************
 
 
 function getSnowmelt_rad_temp_LE_HE(year, month, start, finish) {
@@ -925,7 +924,7 @@ function getSnowmelt_rad_temp_LE_HE(year, month, start, finish) {
   var img_incoming_shorRD = IncomingSR.select(bandName)
   var img_incoming_longRD = IncomingLR.select(bandName);
 
-  // *********************************** calculate snowmelt caused by radiation ******************************
+
 
   var doyList = ee.List(imgCol_albedo.aggregate_array('doy'));
   var imgCol_snowmelt_rad = doyList.map(function(doy){
@@ -1035,7 +1034,6 @@ function getHasSnowDayYearImage(year, month) {
   return yearImg.toInt();
 }
 
-// ************************************************************************************************************************************************************
 
 
 
@@ -1183,7 +1181,7 @@ function getEM29_31_32_MODIS(year, month, start, finish) {
 
 
 
-// **********************************************************************************************
+// *********************************** Get Daily Value ******************************************************
 
 function day_mosaics(date, newlist, rawImgCol) {
   // Cast
@@ -1271,7 +1269,7 @@ function getDailyData_mean(Col, start, finish, bandName) {
   return byDay.filterDate(start, finish);
 }
 
-// ************************************************************************************************************************************************************
+
 function getTemp_ERA5(start, finish){
   var bandName = 'temperature_2m';
   var unit = 'degree';
@@ -1594,7 +1592,7 @@ function getLST_MODIS(start, finish) {
 }
 
 
-// ************************************************************************************************************************************************************
+// ********************************************************** Extract Data by Region *******************************************************************************************
 
 
 var getGeometry1 = function(feature) {
@@ -1680,7 +1678,7 @@ function extractSnowTempRainAlbedo(featureCol, image, fileName, folderName, sele
 
 
     
-// ********************************************************************************************************************************************************
+// *********************************************************** Extract Value **************************************************************************************
 
 function ExtractImgValue(image_burnID, featureCol, folderName, snowStartYear,snowEndYear,monthStart,monthEnd,fireYear) {
   
@@ -1777,7 +1775,6 @@ function ExtractImgValue(image_burnID, featureCol, folderName, snowStartYear,sno
 
       var image_SH_era5 = getSH_ERA5(start, finish)
       
-     // *********************************************************************************************************************************************************************
      
       var imgs = ee.List([
         image_getPrecip_MODIS,
@@ -1908,6 +1905,11 @@ var monthStart = 1
 var monthEnd = 1
 
 main(folderName, pointsCol, snowStartYear,snowEndYear,monthStart,monthEnd,fireYear)
+
+
+
+
+
 
 
 
