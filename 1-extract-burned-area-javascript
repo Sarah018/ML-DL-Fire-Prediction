@@ -1,5 +1,5 @@
 // The javascript code can be accessed through Google Earth Engine cloud computing platform at:
-// https://code.earthengine.google.com/efbfbf54838001aeaee7bd7fd98d1e57
+// https://code.earthengine.google.com/61be378aeafbe9bd100c547039938a94
 
 // The code is as follows:
 var snow = ee.ImageCollection("MODIS/006/MOD10A1"),
@@ -7,6 +7,16 @@ var snow = ee.ImageCollection("MODIS/006/MOD10A1"),
     geometry = /* color: #d63000 */ee.Geometry.MultiPoint(),
     DEM = ee.Image("USGS/GMTED2010");
     
+      
+var burnedArea = burn.select('BurnDate').filter(ee.Filter.date('2017-01-01', '2021-10-01'));
+var burnedAreaVis = {
+  min: 30.0,
+  max: 341.0,
+  palette: ['4e0400', '951003', 'c61503', 'ff1901'],
+};
+Map.setCenter(6.746, 46.529, 2);
+Map.addLayer(burnedArea, burnedAreaVis, 'Burned Area');
+
 var roi = /* color: #bf04c2 */ee.Geometry.Polygon(
         [[[-180, 90],
           [0, 90],
@@ -462,6 +472,10 @@ main1();
 // Seventh: ecoID
 // main7();
 
+
+
+
+  
 
 
 
