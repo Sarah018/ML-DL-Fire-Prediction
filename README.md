@@ -8,9 +8,6 @@ An Empirical Machine Learning Method for Predicting Potential Fire Control Locat
 3. Raw data were accessed through Google Earth Engine cloud computing platform with JavaScript.
 
 
-## Datasets
-
-
 ## Implementation Details
 
 ### Data Preparation
@@ -21,7 +18,7 @@ An Empirical Machine Learning Method for Predicting Potential Fire Control Locat
 4-merge-data.ipynb
 ```
 
-### Data Analysis before Diving into ML
+### Data Analysis before Diving into Fire Prediction Using ML
 ```
 5-Analysis-time-series.ipynb
 6-correlation-two-variables.ipynb
