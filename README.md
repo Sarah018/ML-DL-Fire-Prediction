@@ -11,9 +11,9 @@ An Empirical Machine Learning Method for Predicting Potential Fire Control Locat
 ## Datasets
 
 
-## Implementation details
+## Implementation Details
 
-### data preparation
+### Data Preparation
 
 build train/validation/test sets,
 
@@ -24,7 +24,7 @@ build train/validation/test sets,
 4-merge-data.ipynb
 ```
 
-### analyze data before diving into ML
+### Data Analysis before Diving into ML
 ```
 5-Analysis-time-series.ipynb
 6-correlation-two-variables.ipynb
@@ -32,7 +32,7 @@ build train/validation/test sets,
 
 
 
-### training/validation
+### Train/Validation
 ```
 7-ML-predict-fire.ipynb
 ```
