@@ -14,9 +14,6 @@ An Empirical Machine Learning Method for Predicting Potential Fire Control Locat
 ## Implementation Details
 
 ### Data Preparation
-
-build train/validation/test sets,
-
 ```
 1-extract-burned-area-javascript
 2-pair-burn-unburn.ipynb
