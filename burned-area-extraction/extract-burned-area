@@ -141,11 +141,6 @@ function calcMeanSnowPersistence(yearImgCol) {
 
 
 
-
-
-
-
-
 function fireMask(image, MosaicFire) {
 
   var constantImage = ee.Image.constant(100).toByte();
