@@ -1,5 +1,5 @@
 // The javascript code can be accessed through Google Earth Engine cloud computing platform at:
-// https://code.earthengine.google.com/97822c5387dfa13576ee0b14393a2d05
+// https://code.earthengine.google.com/efbfbf54838001aeaee7bd7fd98d1e57
 
 // The code is as follows:
 var snow = ee.ImageCollection("MODIS/006/MOD10A1"),
@@ -141,6 +141,11 @@ function calcMeanSnowPersistence(yearImgCol) {
 
 
 
+
+
+
+
+
 function fireMask(image, MosaicFire) {
 
   var constantImage = ee.Image.constant(100).toByte();
@@ -157,6 +162,8 @@ function fireMask(image, MosaicFire) {
   var image2=constantImage.updateMask(maskImage);
   return image2
 }
+
+
 
 
 function exportCSV(fireImage,  name, bandName) {
@@ -196,6 +203,7 @@ function exportCSV(fireImage,  name, bandName) {
   });
 }
 
+//  Calculate snow possibility
 function main1() {
 var startDate = ee.Date("2018-10-1");
 var endDate = ee.Date("2019-10-1");
@@ -214,6 +222,7 @@ print(img)
   });
 }
 
+//  Get seasonal snow areas
 function main2() {
   var name1 = 'SnowPers20001001to20011001';
   var name2 = 'SnowPers20011001to20021001';
@@ -274,6 +283,7 @@ function main2() {
   
 }
 
+// Get BurnDate
 function main3() {
   
   var images = burn.filterDate("2000-10-1", "2020-10-1").select("BurnDate")
@@ -328,7 +338,7 @@ function main3_2() {
     
 }
 
-
+// Get areas where fire never occur
 function main4() {
   
   var MosaicFire = burn.filterDate("2000-10-1", "2020-10-1").select("BurnDate");
@@ -391,6 +401,7 @@ function main5() {
     
 }
 
+// Get DEM 
 function main6() {
   
   
@@ -409,6 +420,7 @@ function main6() {
     
 }
 
+// Get biome type and ecoregion ID
 function main7() {
   var ecoRegions = ee.FeatureCollection("RESOLVE/ECOREGIONS/2017")
   var properties = ["BIOME_NUM", "ECO_ID"];
