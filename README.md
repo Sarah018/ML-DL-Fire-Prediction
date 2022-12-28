@@ -12,11 +12,9 @@ Leveraging Deep Learning to Predict Wildfire
 
 ### Data Preparation
 
-The data can be accessed through [Google Cloud Computing Platform](https://code.earthengine.google.com/61be378aeafbe9bd100c547039938a94)
-Please see the code in: 1-extract-burned-area.js
+The data can be accessed through [Google Cloud Computing Platform](https://code.earthengine.google.com/61be378aeafbe9bd100c547039938a94).Please see the code in: 1-extract-burned-area.js
 
 ```
-
 2-pair-burn-unburn.ipynb
 3-extract-fire-drivers-javascript
 4-merge-data.ipynb
