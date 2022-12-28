@@ -1,5 +1,5 @@
 # Wildfire Prediction
-Leveraging Deep Learning to Predict Wildfire
+Leveraged Deep Learning to Predict Wildfire
 
 ## Requirements
 
