@@ -1,9 +1,9 @@
-# ML-fire-prediction
-An Empirical Machine Learning Method for Predicting Potential Fire Control Locations for Pre-Fire Planning and Operational Fire Management
+# Wildfire Prediction
+Leveraging Deep Learning to Predict Wildfire
 
 ## Requirements
 
-1. The project was implemented and tested in Python 3.5. The higher versions should work after minor modification.
+1. The project was implemented and tested in Python 3.7. The higher versions should work after minor modification.
 2. Other common modules like numpy, pandas and seaborn for visualization.
 3. Raw data were accessed through Google Earth Engine cloud computing platform with JavaScript.
 
@@ -29,6 +29,7 @@ An Empirical Machine Learning Method for Predicting Potential Fire Control Locat
 ### Train/Validation
 ```
 7-ML-predict-fire.ipynb
+8-DL-predict-fire
 ```
 
 
